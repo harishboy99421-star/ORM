@@ -35,11 +35,31 @@ Apply the migration files of the created app to the database
 Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
+models.py
+from django.db import models
+from django.contrib import admin
+class website (models.Model):
+    colour=models.CharField(max_length=10)
+    size=models.CharField(max_length=20)
+    ratings=models.FloatField()
+    price=models.IntegerField()
+    Product_code=models.IntegerField(primary_key=True)
+    Brand=models.CharField(max_length=50)
+    Quality=models.CharField(max_length=20)
+class websiteAdmin(admin.ModelAdmin):
+    list_display=["colour","size","ratings","price","Product_code","Brand","Quality"]
+
+
+admin.py
+from django.contrib import admin
+from .models import website,websiteAdmin
+admin.site.register(website,websiteAdmin) 
+
 
 
 
 ## OUTPUT
-
+![alt text](<Screenshot 2025-12-02 124225-1.png>)
 
 
 ## RESULT
